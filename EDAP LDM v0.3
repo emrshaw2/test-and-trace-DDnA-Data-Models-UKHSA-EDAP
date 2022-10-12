@@ -1,0 +1,2673 @@
+
+CREATE TYPE [Unique ID]
+	FROM UNIQUEIDENTIFIER NULL
+go
+
+CREATE TYPE [Date]
+	FROM CHAR(18) NULL
+go
+
+CREATE TYPE [Time]
+	FROM CHAR(18) NULL
+go
+
+CREATE TYPE [Float]
+	FROM CHAR(18) NULL
+go
+
+CREATE TYPE [Integer]
+	FROM INTEGER NULL
+go
+
+CREATE TYPE [Long String]
+	FROM VARCHAR(250) NULL
+go
+
+CREATE TYPE [Flag]
+	FROM VARCHAR(1) NULL
+go
+
+CREATE TABLE [Address]
+( 
+	[Address Id]         [Unique ID]  NOT NULL ,
+	[Address Country]    varchar(20)  NULL ,
+	[Address Country Id] [Unique ID] ,
+	[Address County]     varchar(20)  NULL ,
+	[Address Line 1]     varchar(20)  NULL ,
+	[Address Line 2]     varchar(20)  NULL ,
+	[Address Town _Postal_] varchar(20)  NULL ,
+	[Latitude]           varchar(20)  NULL ,
+	[Longitude]          varchar(20)  NULL ,
+	[OS National Grid Easting] [Integer] ,
+	[OS National Grid Northing] [Integer] ,
+	[UPRN]               varchar(20)  NULL ,
+	[Address Postal Code] varchar(20)  NULL ,
+	[UK Postcode Grouping ID] uniqueidentifier  NULL ,
+	[Country ID]         [Integer] 
+)
+go
+
+CREATE TABLE [Address Location]
+( 
+	[Address Id]         [Unique ID] ,
+	[Location ID]        [Integer] 
+)
+go
+
+CREATE TABLE [Animal]
+( 
+	[Subject Id]         [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Appointment Type]
+( 
+	[Appointment Type ID] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Blood]
+( 
+	[Sample Id]          [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Body Part]
+( 
+	[Sample Id]          [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Book Appointment]
+( 
+	[Sample Request ID]  [Integer] 
+)
+go
+
+CREATE TABLE [Book Test Appointment Event]
+( 
+	[Event Id]           [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Build Up Area SubDivision]
+( 
+	[Built Up Area SubDivsion ID] [Integer]  NOT NULL ,
+	[Built Up Area SubDivision Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Built Up Area]
+( 
+	[Build Up Area ID]   uniqueidentifier  NOT NULL ,
+	[Build Up Area Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Cancer Alliance]
+( 
+	[Cancer Alliance ID] [Integer]  NOT NULL ,
+	[Cancer Alliance Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Care Home]
+( 
+	[Party ID]           [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Case]
+( 
+	[Public Health Situation ID] [Integer] 
+)
+go
+
+CREATE TABLE [Case Exposure Location]
+( 
+	[Location ID]        [Integer] 
+)
+go
+
+CREATE TABLE [Case Party Subject]
+( 
+	[Subject Id]         [Unique ID] ,
+	[Party ID]           [Integer] 
+)
+go
+
+CREATE TABLE [Clinical Commission Group]
+( 
+	[Clinical Commission Group ID] [Integer]  NOT NULL ,
+	[Clinical Commission Group Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Communication]
+( 
+	[Communication ID]   [Integer]  NOT NULL ,
+	[Comnnunication Status Type ID] [Integer]  NOT NULL ,
+	[Sent Date Timestamp] datetime  NULL ,
+	[Delivery Receiced Date Timestamp] datetime  NULL ,
+	[Communication Channel ID] [Unique ID] ,
+	[PC Communication Type ID] [Integer] ,
+	[Create Date]        [Date] ,
+	[Create By]          varchar(50)  NULL ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Communication Channel]
+( 
+	[Communication Channel ID] [Unique ID]  NOT NULL ,
+	[Communication Channel Description] [Long String] ,
+	[Communication Channel Name] varchar(20)  NULL 
+)
+go
+
+CREATE TABLE [Communication Status Type]
+( 
+	[Comnnunication Status Type ID] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Country]
+( 
+	[Country ID]         [Integer]  NOT NULL ,
+	[Country PC Code ID] varchar(9)  NULL ,
+	[Country Name]       varchar(50)  NULL ,
+	[Country Name Welsh] varchar(50)  NULL ,
+	[__ISO Country Name] varchar(50)  NULL ,
+	[__ISO Country 3 Char Code] char(3)  NULL ,
+	[Source ID]          [Integer] ,
+	[Event ID]           [Integer] ,
+	[Last Updated By]    varchar(50)  NULL ,
+	[Last Updated Date]  [Date] ,
+	[Created By]         varchar(50)  NULL ,
+	[Created Date]       [Date] 
+)
+go
+
+CREATE TABLE [Country Travel History]
+( 
+	[Country ID]         [Integer] ,
+	[Location ID]        [Integer] 
+)
+go
+
+CREATE TABLE [County]
+( 
+	[County ID]          [Integer]  NOT NULL ,
+	[County PC Code ID]  varchar(9)  NULL ,
+	[County Name]        varchar(100)  NULL ,
+	[Source ID]          [Integer] ,
+	[Event ID]           [Integer] ,
+	[Last Updated By]    varchar(50)  NULL ,
+	[Last Updated Date]  [Date] ,
+	[Created By]         varchar(50)  NULL ,
+	[Created Date]       [Date] 
+)
+go
+
+CREATE TABLE [County Electoral Division]
+( 
+	[County Electoral Division ID] [Integer]  NOT NULL ,
+	[County Electoral Divisio Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Delivery Receipt]
+( 
+	[Communication ID]   [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Distributor]
+( 
+	[Party ID]           [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [DNA]
+( 
+	[Sample Id]          [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Education Institution]
+( 
+	[Party ID]           [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Education Institution Location]
+( 
+	[Test Site ID]       varchar(20)  NULL ,
+	[Unique Organisation Number] varchar(20)  NULL ,
+	[URN Organisation]   varchar(20)  NULL 
+)
+go
+
+CREATE TABLE [Education Institutional Type]
+( 
+	[Educationl Institute Type ID] char(18)  NULL 
+)
+go
+
+CREATE TABLE [Email Address]
+( 
+	[Email Address Id]   [Unique ID]  NOT NULL ,
+	[Email Address]      [Long String] ,
+	[Party ID]           [Integer] 
+)
+go
+
+CREATE TABLE [Ethnicity]
+( 
+	[Ethnicity Id]       [Unique ID]  NOT NULL ,
+	[Ethnicity Name]     varchar(20)  NULL ,
+	[Ethnic Group Id]    [Unique ID] ,
+	[Ethnicity Description] [Long String] ,
+	[Ethnicity Group ID] [Integer] 
+)
+go
+
+CREATE TABLE [Ethnicity Group]
+( 
+	[Ethnicity Group ID] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [European Electoral Region]
+( 
+	[European Electoral Region ID] [Integer]  NOT NULL ,
+	[European Electoral Region Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Event]
+( 
+	[Event Id]           [Unique ID]  NOT NULL ,
+	[Actual Event DateTime] datetime  NULL ,
+	[Event Start DateTime] datetime  NULL ,
+	[Event End DateTime] datetime  NULL ,
+	[Event Type Id]      [Unique ID] ,
+	[Management Scheme ID] [Integer] ,
+	[Public Health Situation ID] [Integer] 
+)
+go
+
+CREATE TABLE [Event Type]
+( 
+	[Event Type Name]    varchar(20)  NULL ,
+	[Event Type Description] char(18)  NULL ,
+	[Physical Table Name] char(18)  NULL ,
+	[Event Type Id]      [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Extras]
+( 
+	[Create Date]        [Date] ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL ,
+	[Event ID]           [Integer] ,
+	[Source ID]          [Integer] ,
+	[Create By]          varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Gender]
+( 
+	[Gender ID]          [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Health Authority]
+( 
+	[Health Authority ID] [Integer]  NOT NULL ,
+	[Health Authority PC Code ID] varchar(9)  NULL ,
+	[Health Authority PC Code] varchar(9)  NULL ,
+	[Health Authority Name] varchar(50)  NULL ,
+	[Health Authority Name Welsh] varchar(50)  NULL ,
+	[Source ID]          [Integer] ,
+	[Event ID]           [Integer] ,
+	[Last Updated By]    varchar(50)  NULL ,
+	[Last Updated Date]  [Date] ,
+	[Created By]         varchar(50)  NULL ,
+	[Created Date]       [Date] 
+)
+go
+
+CREATE TABLE [Hospital]
+( 
+	[Party ID]           [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Human Subject]
+( 
+	[Subject Id]         [Unique ID]  NOT NULL ,
+	[Ethnicity Id]       [Unique ID] ,
+	[Occupation ID]      [Integer] ,
+	[Gender ID]          [Integer] ,
+	[Travel Flag]        [Flag] ,
+	[Symptom Onset Date] [Date] ,
+	[Current Symptomatic Flag] [Flag] ,
+	[Non Digital User Flag] [Flag] ,
+	[Car Accessible Flag] [Flag] ,
+	[Date of Birth]      [Date] ,
+	[Employer Name]      varchar(100)  NULL ,
+	[Vehicle Registration Number] varchar(20)  NULL ,
+	[Person Id]          [Unique ID] ,
+	[Party ID]           [Integer] ,
+	[Student Study Grade ID] [Integer] ,
+	[Has Household Previous Positive Test Flag] [Flag] ,
+	[Recent Travel Destination Country Id] [Unique ID] ,
+	[Work Study Travel Id] [Unique ID] 
+)
+go
+
+CREATE TABLE [Index of Multiple Deprivation]
+( 
+	[Index of Multiple Deprivation ID] [Integer]  NOT NULL ,
+	[Index of Multiple Deprivation Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [International Arrival]
+( 
+	[Party ID]           [Integer] 
+)
+go
+
+CREATE TABLE [Isolation Communication]
+( 
+	[Communication ID]   [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Laboratory]
+( 
+	[Organisation Id]    [Unique ID]  NOT NULL ,
+	[Party ID]           [Integer]  NOT NULL ,
+	[Lab Code]           varchar(20)  NULL 
+)
+go
+
+CREATE TABLE [Laboratory Location]
+( 
+	[Lab ID]             varchar(20)  NULL ,
+	[Lab Network]        varchar(100)  NULL ,
+	[Lab Name]           varchar(100)  NULL ,
+	[Mobile Lab Flag]    [Flag] 
+)
+go
+
+CREATE TABLE [Local Authority District]
+( 
+	[Local Authority District ID] [Integer]  NOT NULL ,
+	[Local Authority Lower District PC Code ID] varchar(9)  NULL ,
+	[Local Authority Lower District Name] varchar(50)  NULL ,
+	[Local Authority District Name Welsh] varchar(50)  NULL ,
+	[Local Authority Upper District PC Code ID] varchar(9)  NULL ,
+	[Local Authority Upper District Name] varchar(50)  NULL ,
+	[Source ID]          [Integer] ,
+	[Event ID]           [Integer] ,
+	[Last Updated By]    varchar(50)  NULL ,
+	[Last Updated Date]  [Date] ,
+	[Created By]         varchar(50)  NULL ,
+	[Created Date]       [Date] 
+)
+go
+
+CREATE TABLE [Local Enterprise Partnership First Instance]
+( 
+	[Local Enterprise Partnership First Instance ID] [Integer]  NOT NULL ,
+	[Local Enterprise Partnership First Instance Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Local Enterprise Partnership Second Instance]
+( 
+	[Local Enterprise Partnership Second Instance ID] [Integer]  NOT NULL ,
+	[Local Enterprise Partnership Second Instance Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Local Learning and Skills Council]
+( 
+	[Local Learning and Skills Council ID] [Integer]  NOT NULL ,
+	[Local Learning and Skills Council Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Location]
+( 
+	[Location ID]        [Integer]  NOT NULL ,
+	[Location Name]      varchar(100)  NULL ,
+	[Site Code]          varchar(20)  NULL ,
+	[Country ID]         [Integer] ,
+	[Operational Start Date] [Date] ,
+	[Operational End Date] [Date] ,
+	[Latitude]           decimal(10,8)  NULL ,
+	[Longitude]          decimal(11,8)  NULL ,
+	[Easting Grid Reference] char(18)  NULL ,
+	[Northing Grid Reference] char(18)  NULL ,
+	[Source stystem ID]  varchar(20)  NULL ,
+	[Active Location Flag] bit  NULL ,
+	[Location Name Description] varchar(200)  NULL ,
+	[Service Provider Name] varchar(30)  NULL ,
+	[Create Date]        [Date] ,
+	[Create By]          varchar(50)  NULL ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Location Capacity Forecast]
+( 
+	[Location Forecast Capacity] [Integer]  NOT NULL ,
+	[Location ID]        [Integer] ,
+	[Forecast Date]      [Date] ,
+	[Forecast Capacity Value] [Integer] ,
+	[Forecast Capacity Type] varchar(20)  NULL ,
+	[Forecast Capacity Period] char(18)  NULL 
+)
+go
+
+CREATE TABLE [Location Management Scheme]
+( 
+	[Location ID]        [Integer] ,
+	[Management Scheme ID] [Integer] 
+)
+go
+
+CREATE TABLE [Location Schedule]
+( 
+	[Location Schedule ID] [Integer]  NOT NULL ,
+	[Location ID]        [Integer] ,
+	[Location Schedule Type] integer  NULL ,
+	[Weekend Flag]       bit  NULL ,
+	[Weekday Flag]       bit  NULL 
+)
+go
+
+CREATE TABLE [Location Type]
+( 
+	[Location ID]        [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Management Scheme]
+( 
+	[Management Scheme ID] [Integer]  NOT NULL ,
+	[Management Scheme Name] varchar(100)  NULL ,
+	[Proposed Start Date for Scheme] [Date] ,
+	[Proposed End Date for Scheme] [Date] 
+)
+go
+
+CREATE TABLE [Manufacturer]
+( 
+	[Party ID]           [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [National Park]
+( 
+	[National Park ID]   [Integer]  NOT NULL ,
+	[National Park Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [NHS England Region]
+( 
+	[NHS England Region ID] [Integer]  NOT NULL ,
+	[NHS England Region PC Code ID] varchar(9)  NULL ,
+	[NHS England Region PC Code] varchar(9)  NULL ,
+	[NHS England Region Name] varchar(50)  NULL ,
+	[Source ID]          [Integer] ,
+	[Event ID]           [Integer] ,
+	[Last Updated By]    varchar(50)  NULL ,
+	[Last Updated Date]  [Date] ,
+	[Created By]         varchar(50)  NULL ,
+	[Created Date]       [Date] 
+)
+go
+
+CREATE TABLE [NUTS LAU]
+( 
+	[NUTS LAU ID]        [Integer]  NOT NULL ,
+	[NUTS LAU Code]      varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Object]
+( 
+	[Subject Id]         [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Occupation]
+( 
+	[Occupation ID]      [Integer]  NOT NULL ,
+	[ONS Occupation Code] varchar(20)  NULL ,
+	[ONS Occupation Title] varchar(20)  NULL 
+)
+go
+
+CREATE TABLE [Order]
+( 
+	[Order ID]           [Integer]  NOT NULL ,
+	[Order Priority ID]  [Integer]  NOT NULL ,
+	[Order Channel ID]   [Integer] ,
+	[Order Type ID]      [Integer]  NOT NULL ,
+	[Order Status ID]    [Integer]  NOT NULL ,
+	[Order Date Time]    datetime  NULL ,
+	[Order Reason]       varchar(100)  NULL ,
+	[Source ID]          varchar(50)  NULL ,
+	[Create Date]        [Date] ,
+	[Create By]          varchar(50)  NULL ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Order Channel]
+( 
+	[Order Channel ID]   [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Order Line Item]
+( 
+	[Order Line Item ID] [Integer]  NOT NULL ,
+	[Order ID]           [Integer] ,
+	[Order Priority ID]  [Integer] ,
+	[Order Status ID]    [Integer]  NOT NULL ,
+	[Product ID]         char(18)  NULL ,
+	[Product Quantity]   [Integer] ,
+	[Unit of Measure Text] varchar(20)  NULL ,
+	[Box Quantity]       [Integer] ,
+	[Create By]          varchar(50)  NULL ,
+	[Create Date]        [Date] ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Order Party]
+( 
+	[Order Party ID]     [Integer]  NOT NULL ,
+	[Order ID]           [Integer]  NOT NULL ,
+	[Party ID]           [Integer] ,
+	[Order Party Type]   [Integer] 
+)
+go
+
+CREATE TABLE [Order Party Type]
+( 
+	[Order Party Type]   [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Order Priority]
+( 
+	[Order Priority ID]  [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Order Status]
+( 
+	[Order Status ID]    [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Order Type]
+( 
+	[Order Type ID]      [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Organisation]
+( 
+	[Party ID]           [Integer]  NOT NULL ,
+	[Organisation Name]  [Long String] ,
+	[Organisation Sub Type Id] [Unique ID] ,
+	[Organisation Use Case Id] [Unique ID] ,
+	[ODS Code]           varchar(20)  NULL ,
+	[Is Active Flag]     [Flag] ,
+	[Organisation Id]    [Unique ID] ,
+	[Source Organisation ID] varchar(50)  NULL ,
+	[Organisation Resident Count] [Integer] ,
+	[Organisation Staff Count] [Integer] ,
+	[Organisation Resident Capacity] [Integer] ,
+	[Weekend Testing Commitment Status] varchar(20)  NULL ,
+	[Source Organsiation Created Date] [Date] 
+)
+go
+
+CREATE TABLE [Organisation SubType]
+( 
+	[Organisation Sub Type Name] varchar(20)  NULL ,
+	[Organisation Sub Type Description] [Long String] ,
+	[Organisation Type Id] [Unique ID] ,
+	[Organisation Sub Type Id] [Unique ID] 
+)
+go
+
+CREATE TABLE [Organisation Type]
+( 
+	[Organisation Type Name] varchar(20)  NULL ,
+	[Organisation Type Description] [Long String] ,
+	[Organisation Type Id] [Unique ID] 
+)
+go
+
+CREATE TABLE [Other]
+( 
+	[Party ID]           [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Output Area]
+( 
+	[Output Area ID]     uniqueidentifier  NOT NULL ,
+	[Output Area Code]   varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Output Area Classification]
+( 
+	[Output Area Classification ID] uniqueidentifier  NOT NULL ,
+	[Output Area Classification Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Party]
+( 
+	[Party ID]           [Integer]  NOT NULL ,
+	[Party Type ID]      [Integer]  NOT NULL ,
+	[Party Status Type]  [Integer] ,
+	[Create Date]        [Date] ,
+	[Create By]          varchar(50)  NULL ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Party Address]
+( 
+	[Party Address ID]   [Integer]  NOT NULL ,
+	[Address Id]         [Unique ID] ,
+	[Party ID]           [Integer] 
+)
+go
+
+CREATE TABLE [Party Case]
+( 
+	[Party ID]           [Integer] 
+)
+go
+
+CREATE TABLE [Party Location]
+( 
+	[Location ID]        [Integer] ,
+	[Party ID]           [Integer] 
+)
+go
+
+CREATE TABLE [Party Party Relationship]
+( 
+	[Party Party Relationship ID] [Integer]  NOT NULL ,
+	[Party ID]           [Integer] ,
+	[Party Relationship Type ID] [Integer] 
+)
+go
+
+CREATE TABLE [Party Relationship Type]
+( 
+	[Party Relationship Type ID] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Party Source Data]
+( 
+	[Party ID]           [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Party Status Type]
+( 
+	[Party Status Type]  [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Party Type]
+( 
+	[Party Type ID]      [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [PC Communication Type]
+( 
+	[PC Communication Type ID] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Person]
+( 
+	[Person Id]          [Unique ID]  NOT NULL ,
+	[Party ID]           [Integer]  NOT NULL ,
+	[Ethnicity Id]       [Unique ID] ,
+	[Date of Birth]      [Date] ,
+	[Vaccination Month Year] char(18)  NULL ,
+	[Address Validated Flag] [Flag] ,
+	[First Name]         varchar(20)  NULL ,
+	[Last Name]          varchar(20)  NULL ,
+	[NHS Number]         varchar(20)  NULL ,
+	[Key Worker Flag]    [Flag] ,
+	[Mobile Telephone Address Id] [Unique ID] ,
+	[Landline Telephone Address Id] [Unique ID] ,
+	[Vaccination Status Id] [Unique ID] ,
+	[Vaccination Period Id] [Unique ID] ,
+	[Occupation ID]      [Integer] ,
+	[Gender ID]          [Integer] ,
+	[Non Digital Status] bit  NULL ,
+	[Student Study Grade ID] [Integer] 
+)
+go
+
+CREATE TABLE [Place]
+( 
+	[Subject Id]         [Unique ID]  NOT NULL ,
+	[Location ID]        [Integer] 
+)
+go
+
+CREATE TABLE [Plant]
+( 
+	[Subject Id]         [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Police Force Area]
+( 
+	[Police Force Area ID] [Integer]  NOT NULL ,
+	[Police Force Area Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Primary Care Trust]
+( 
+	[Primary Care Trust ID] [Integer]  NOT NULL ,
+	[Primary Care Trust PC Code ID] varchar(9)  NULL ,
+	[Primary Care Trust PC Code] varchar(9)  NULL ,
+	[Primary Care Trust Name] varchar(50)  NULL ,
+	[Primary Care Trust Name Welsh] varchar(100)  NULL ,
+	[Source ID]          [Integer] ,
+	[Event ID]           [Integer] ,
+	[Last Updated By]    varchar(50)  NULL ,
+	[Last Updated Date]  [Date] ,
+	[Created By]         varchar(50)  NULL ,
+	[Created Date]       [Date] 
+)
+go
+
+CREATE TABLE [Product]
+( 
+	[Product ID]         char(18)  NOT NULL ,
+	[Product Type ID]    [Integer]  NOT NULL ,
+	[SKU ID]             varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Product Definition]
+( 
+	[Product Definition Id] [Unique ID]  NOT NULL ,
+	[Product Name]       varchar(20)  NULL ,
+	[Product Definition Type ID] [Unique ID] ,
+	[Product ID]         char(18)  NULL 
+)
+go
+
+CREATE TABLE [Product Type]
+( 
+	[Product Type ID]    [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Public Health Situation]
+( 
+	[Public Health Situation ID] [Integer]  NOT NULL ,
+	[Public Health Situation Type] [Integer] ,
+	[Public Health Situation Name] varchar(100)  NULL ,
+	[Public Health Situation Description] varchar(1000)  NULL ,
+	[Create Date]        [Date] ,
+	[Create By]          varchar(50)  NULL ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Public Health Situation Management Scheme]
+( 
+	[Public Health Situation Management Scheme ID] [Integer]  NOT NULL ,
+	[Management Scheme ID] [Integer] ,
+	[Public Health Situation ID] [Integer] 
+)
+go
+
+CREATE TABLE [Public Health Situation Type]
+( 
+	[Public Health Situation Type] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Region]
+( 
+	[Region ID]          [Integer]  NOT NULL ,
+	[Region PC Code ID]  varchar(9)  NULL ,
+	[Region PC Code]     varchar(9)  NULL ,
+	[Region Name]        varchar(40)  NULL ,
+	[Region Name Welsh]  varchar(40)  NULL ,
+	[Source ID]          [Integer] ,
+	[Event ID]           [Integer] ,
+	[Last Updated By]    varchar(50)  NULL ,
+	[Last Updated Date]  [Date] ,
+	[Created By]         varchar(50)  NULL ,
+	[Created Date]       [Date] 
+)
+go
+
+CREATE TABLE [Rural Urban Classification]
+( 
+	[Rural Urban Classification ID] [Integer]  NOT NULL ,
+	[Rural Urban Classification Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Saliva]
+( 
+	[Sample Id]          [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Sample]
+( 
+	[Sample Id]          [Unique ID]  NOT NULL ,
+	[Specimen Identifier] varchar(20)  NULL ,
+	[Subject Sample ID]  varchar(20)  NULL ,
+	[Sample Cohort Flag] [Flag] ,
+	[Cohort Pooling Count] char(18)  NULL ,
+	[Sample Taken Date]  datetime  NULL ,
+	[Sample Type ID]     [Integer] ,
+	[Create Date]        [Date] ,
+	[Create By]          varchar(50)  NULL ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Sample  Kit]
+( 
+	[Sample Id]          [Unique ID] 
+)
+go
+
+CREATE TABLE [Sample  Request]
+( 
+	[Sample Request ID]  [Integer]  NOT NULL ,
+	[Sample Request Reason ID] [Integer] ,
+	[Sample Request Admin Channel] [Integer] ,
+	[Appointment Type ID] [Integer] ,
+	[Create Date]        [Date] ,
+	[Create By]          varchar(50)  NULL ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Sample  Request Event]
+( 
+	[Test Request Event Id] [Unique ID]  NOT NULL ,
+	[Test Reason Id]     [Unique ID] ,
+	[Antibody or Antigen Flag] [Flag] ,
+	[Source Registration Journey Id] [Unique ID] ,
+	[Test Request Datetime] char(18)  NULL ,
+	[Test Channel Id]    [Unique ID] ,
+	[Referrer Entry Point Id] [Unique ID] 
+)
+go
+
+CREATE TABLE [Sample  Request Party]
+( 
+	[Party ID]           [Integer] ,
+	[Sample Request ID]  [Integer] 
+)
+go
+
+CREATE TABLE [Sample  Request Reason]
+( 
+	[Sample Request Reason ID] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Sample Request Admin Channel]
+( 
+	[Sample Request Admin Channel] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Sample Request inbound Channel]
+( 
+	[Sample Request Inbound Channel ID] [Integer]  NOT NULL ,
+	[Sample Request ID]  [Integer] 
+)
+go
+
+CREATE TABLE [Sample Taken]
+( 
+	[Sample Id]          [Unique ID] ,
+	[Sample Adminstartion Method] varchar(50)  NULL ,
+	[Sample Request ID]  [Integer] 
+)
+go
+
+CREATE TABLE [Sample Type]
+( 
+	[Sample Type ID]     [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Shiment Order Line]
+( 
+	[Shipment Order Line ID] [Integer]  NOT NULL ,
+	[Shipment ID]        [Integer] ,
+	[Product ID]         char(18)  NULL ,
+	[Order Status ID]    [Integer] ,
+	[Actual Delivery Date] datetime  NULL ,
+	[Expected Delivery Date] datetime  NULL ,
+	[Unit of Measure Text] varchar(20)  NULL ,
+	[Shipped Quantity]   [Integer] ,
+	[Carrier Tracking ID] varchar(100)  NULL ,
+	[Lot Number]         varchar(20)  NULL ,
+	[Batch ID]           varchar(50)  NULL ,
+	[Batch Expiry Date]  datetime  NULL 
+)
+go
+
+CREATE TABLE [Shipemnt Failure Reason]
+( 
+	[Shipment Failure Reason ID] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Shipment]
+( 
+	[Shipment ID]        [Integer]  NOT NULL ,
+	[Shipment Method ID] [Integer]  NOT NULL ,
+	[Shipment Failure Reason ID] [Integer]  NOT NULL ,
+	[Order ID]           [Integer] ,
+	[Order Status ID]    [Integer] ,
+	[Shipment Sent Date Time] datetime  NULL ,
+	[Expected Delivery Date Time] datetime  NULL ,
+	[Shipment Packed Date Time] datetime  NULL ,
+	[Courier Tracking Business ID] varchar(100)  NULL ,
+	[Create By]          varchar(50)  NULL ,
+	[Create Date]        [Date] ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Shipment Address]
+( 
+	[Address Id]         [Unique ID] ,
+	[Shipment ID]        [Integer] 
+)
+go
+
+CREATE TABLE [Shipment Communication]
+( 
+	[Shipment ID]        [Integer] ,
+	[Communication ID]   [Integer] 
+)
+go
+
+CREATE TABLE [Shipment Method]
+( 
+	[Shipment Method ID] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Shipment Party]
+( 
+	[Party ID]           [Integer] ,
+	[Shipment ID]        [Integer] ,
+	[Delivery Party Type ID] [Integer] 
+)
+go
+
+CREATE TABLE [Shipment Party Type]
+( 
+	[Delivery Party Type ID] [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Soil]
+( 
+	[Sample Id]          [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Student Study Grade]
+( 
+	[Student Study Grade ID] [Integer]  NOT NULL ,
+	[Student Study Grade Name] varchar(20)  NULL ,
+	[Student Study Grade Description] [Long String] 
+)
+go
+
+CREATE TABLE [Subject]
+( 
+	[Subject Id]         [Unique ID]  NOT NULL ,
+	[Subject Type ID]    [Integer] ,
+	[Address Validated Flag] [Flag] ,
+	[Positive Test Date] [Date] ,
+	[Landline Telephone Address Id] [Unique ID] ,
+	[Mobile Telephone Address Id] [Unique ID] ,
+	[Organisation Role Id] [Unique ID] ,
+	[Organisation Setting Id] [Unique ID] ,
+	[Subject Source Business Id] varchar(20)  NULL ,
+	[Create Date]        [Date] ,
+	[Create By]          varchar(50)  NULL ,
+	[Last Update Date]   [Date] ,
+	[Last Update By]     varchar(50)  NULL 
+)
+go
+
+CREATE TABLE [Subject Adress]
+( 
+	[Subject Id]         [Unique ID] ,
+	[Address Id]         [Unique ID] 
+)
+go
+
+CREATE TABLE [Subject Sample  Request]
+( 
+	[Subject Test Request Id] [Unique ID]  NOT NULL ,
+	[Subject Id]         [Unique ID] ,
+	[Test Request Event Id] [Unique ID] ,
+	[Sample Request ID]  [Integer] 
+)
+go
+
+CREATE TABLE [Subject Sample Relationship]
+( 
+	[Subject Sample Relationship Id] [Unique ID]  NOT NULL ,
+	[Sample Id]          [Unique ID]  NOT NULL ,
+	[Subject Id]         [Unique ID] 
+)
+go
+
+CREATE TABLE [Subject Type]
+( 
+	[Subject Type ID]    [Integer]  NOT NULL 
+)
+go
+
+CREATE TABLE [Substance]
+( 
+	[Subject Id]         [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Sustainability Transformation Partnership]
+( 
+	[Sustainability Transformation Partnership ID] [Integer]  NOT NULL ,
+	[Sustainability Transformation Partnership Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Telephone Number]
+( 
+	[Party ID]           [Integer] 
+)
+go
+
+CREATE TABLE [Test]
+( 
+	[Test ID]            [Integer]  NOT NULL ,
+	[Organisation Id]    [Unique ID] ,
+	[Sample Id]          [Unique ID] ,
+	[Party ID]           [Integer] 
+)
+go
+
+CREATE TABLE [Test Centre]
+( 
+	[Bookable Status for Test Centre] varchar(20)  NULL ,
+	[Test Centre ID]     varchar(30)  NULL ,
+	[Test Centre Group ID] varchar(30)  NULL 
+)
+go
+
+CREATE TABLE [Test Communication]
+( 
+	[Test ID]            [Integer] ,
+	[Communication ID]   [Integer] 
+)
+go
+
+CREATE TABLE [Test Result]
+( 
+	[Test ID]            [Integer] 
+)
+go
+
+CREATE TABLE [Test Result Communication]
+( 
+	[Test Result Communication Id] [Unique ID]  NOT NULL ,
+	[Communication ID]   [Integer]  NOT NULL ,
+	[Test Result Communication Status Id] [Unique ID] ,
+	[Result Communication Datetime] datetime  NULL ,
+	[Void Result Communicated Flag] [Flag] ,
+	[Test Event Id]      [Unique ID] ,
+	[Datetime result received by NHS Business Services Authority Faster Messaging] datetime  NULL 
+)
+go
+
+CREATE TABLE [Travel To Work Area]
+( 
+	[Travel To Work Area ID] uniqueidentifier  NOT NULL ,
+	[Travel To Work Area Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [UK Postcode Grouping]
+( 
+	[UK Postcode Grouping ID] uniqueidentifier  NOT NULL ,
+	[Postcode 7 character] varchar(9)  NULL ,
+	[Postcode 8 character] varchar(9)  NULL ,
+	[Postcode Variable Character] varchar(9)  NULL ,
+	[Postcode Introduction Date] [Date] ,
+	[Postcode Termination Date] [Date] ,
+	[Longitude]          float  NULL ,
+	[Latitude]           float  NULL ,
+	[Built Up Area ID]   uniqueidentifier  NULL ,
+	[Built Up Area SubDivsion ID] [Integer] ,
+	[Clinical Commission Group ID] [Integer] ,
+	[County Electoral Division ID] [Integer] ,
+	[Country ID]         [Integer] ,
+	[European Electoral Region ID] [Integer] ,
+	[Health Authority ID] [Integer] ,
+	[Index of Multiple Deprivation ID] [Integer] ,
+	[Local Enterprise Partnership First Instance ID] [Integer] ,
+	[Local Enterprise Partnership Second Instance ID] [Integer] ,
+	[Local Authority District ID] [Integer] ,
+	[NHS England Region ID] [Integer] ,
+	[NUTS LAU ID]        [Integer] ,
+	[Primary Care Trust ID] [Integer] ,
+	[Police Force Area ID] [Integer] ,
+	[Cancer Alliance ID] [Integer] ,
+	[Output Area ID]     uniqueidentifier  NULL ,
+	[Output Area Classification ID] uniqueidentifier  NULL ,
+	[National Grid Reference Easting] [Integer] ,
+	[Grid Reference Postional Quality Indicator] [Integer] ,
+	[National Grid Reference Northing] [Integer] ,
+	[National Park ID]   [Integer] ,
+	[Westminister Parlimentary Consistuency ID] [Integer] ,
+	[Region ID]          [Integer] ,
+	[Rural Urban Classification ID] [Integer] ,
+	[Local Learning and Skills Council ID] [Integer] ,
+	[Travel To Work Area ID] uniqueidentifier  NULL ,
+	[Postcode User Type] [Integer] ,
+	[Ward _ Division ID] [Integer] ,
+	[Work Place Zone ID] [Integer] ,
+	[County ID]          [Integer] ,
+	[Create Date]        [Date] ,
+	[Create By]          varchar(50)  NULL ,
+	[Last Update By]     varchar(50)  NULL ,
+	[Last Update Date]   [Date] 
+)
+go
+
+CREATE TABLE [Urine]
+( 
+	[Sample Id]          [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Ward _ Division]
+( 
+	[Ward _ Division ID] [Integer]  NOT NULL ,
+	[Ward _ Division Code] varchar(9)  NULL ,
+	[Source ID]          [Integer] ,
+	[Event ID]           [Integer] ,
+	[Last Updated By]    varchar(50)  NULL ,
+	[Last Updated Date]  [Date] ,
+	[Created By]         varchar(50)  NULL ,
+	[Created Date]       [Date] 
+)
+go
+
+CREATE TABLE [Water]
+( 
+	[Sample Id]          [Unique ID]  NOT NULL 
+)
+go
+
+CREATE TABLE [Westminster Parliamentary Consistency]
+( 
+	[Westminister Parlimentary Consistuency ID] [Integer]  NOT NULL ,
+	[Westminister Parlimentary Consistuency Code] varchar(9)  NULL 
+)
+go
+
+CREATE TABLE [Work Place Zone]
+( 
+	[Work Place Zone ID] [Integer]  NOT NULL ,
+	[Work Place Zone Code] varchar(9)  NULL 
+)
+go
+
+ALTER TABLE [Address]
+	ADD CONSTRAINT [XPKAddress] PRIMARY KEY  CLUSTERED ([Address Id] ASC)
+go
+
+ALTER TABLE [Animal]
+	ADD CONSTRAINT [XPKAnimal] PRIMARY KEY  CLUSTERED ([Subject Id] ASC)
+go
+
+ALTER TABLE [Appointment Type]
+	ADD CONSTRAINT [XPKAppointment Type] PRIMARY KEY  CLUSTERED ([Appointment Type ID] ASC)
+go
+
+ALTER TABLE [Blood]
+	ADD CONSTRAINT [XPKBlood] PRIMARY KEY  CLUSTERED ([Sample Id] ASC)
+go
+
+ALTER TABLE [Body Part]
+	ADD CONSTRAINT [XPKBody Part] PRIMARY KEY  CLUSTERED ([Sample Id] ASC)
+go
+
+ALTER TABLE [Book Test Appointment Event]
+	ADD CONSTRAINT [XPKBook Test Appointment Event] PRIMARY KEY  CLUSTERED ([Event Id] ASC)
+go
+
+ALTER TABLE [Build Up Area SubDivision]
+	ADD CONSTRAINT [XPKBuild Up Area SubDivision] PRIMARY KEY  CLUSTERED ([Built Up Area SubDivsion ID] ASC)
+go
+
+ALTER TABLE [Built Up Area]
+	ADD CONSTRAINT [XPKBuilt Up Area] PRIMARY KEY  CLUSTERED ([Build Up Area ID] ASC)
+go
+
+ALTER TABLE [Cancer Alliance]
+	ADD CONSTRAINT [XPKCancer Alliance] PRIMARY KEY  CLUSTERED ([Cancer Alliance ID] ASC)
+go
+
+ALTER TABLE [Care Home]
+	ADD CONSTRAINT [XPKCare Home] PRIMARY KEY  CLUSTERED ([Party ID] ASC)
+go
+
+ALTER TABLE [Clinical Commission Group]
+	ADD CONSTRAINT [XPKClinical Commission Group] PRIMARY KEY  CLUSTERED ([Clinical Commission Group ID] ASC)
+go
+
+ALTER TABLE [Communication]
+	ADD CONSTRAINT [XPKCommunication] PRIMARY KEY  CLUSTERED ([Communication ID] ASC)
+go
+
+ALTER TABLE [Communication Channel]
+	ADD CONSTRAINT [XPKCommunication Channel] PRIMARY KEY  CLUSTERED ([Communication Channel ID] ASC)
+go
+
+ALTER TABLE [Communication Status Type]
+	ADD CONSTRAINT [XPKCommunication Status Type] PRIMARY KEY  CLUSTERED ([Comnnunication Status Type ID] ASC)
+go
+
+ALTER TABLE [Country]
+	ADD CONSTRAINT [XPKCountry] PRIMARY KEY  CLUSTERED ([Country ID] ASC)
+go
+
+ALTER TABLE [County]
+	ADD CONSTRAINT [XPKCounty] PRIMARY KEY  CLUSTERED ([County ID] ASC)
+go
+
+ALTER TABLE [County Electoral Division]
+	ADD CONSTRAINT [XPKCounty Electoral Division] PRIMARY KEY  CLUSTERED ([County Electoral Division ID] ASC)
+go
+
+ALTER TABLE [Delivery Receipt]
+	ADD CONSTRAINT [XPKDelivery Receipt] PRIMARY KEY  CLUSTERED ([Communication ID] ASC)
+go
+
+ALTER TABLE [Distributor]
+	ADD CONSTRAINT [XPKDistributor] PRIMARY KEY  CLUSTERED ([Party ID] ASC)
+go
+
+ALTER TABLE [DNA]
+	ADD CONSTRAINT [XPKDNA] PRIMARY KEY  CLUSTERED ([Sample Id] ASC)
+go
+
+ALTER TABLE [Education Institution]
+	ADD CONSTRAINT [XPKEducation Institution] PRIMARY KEY  CLUSTERED ([Party ID] ASC)
+go
+
+ALTER TABLE [Email Address]
+	ADD CONSTRAINT [XPKEmail Address] PRIMARY KEY  CLUSTERED ([Email Address Id] ASC)
+go
+
+ALTER TABLE [Ethnicity]
+	ADD CONSTRAINT [XPKEthnicity] PRIMARY KEY  CLUSTERED ([Ethnicity Id] ASC)
+go
+
+ALTER TABLE [Ethnicity Group]
+	ADD CONSTRAINT [XPKEthnicity Group] PRIMARY KEY  CLUSTERED ([Ethnicity Group ID] ASC)
+go
+
+ALTER TABLE [European Electoral Region]
+	ADD CONSTRAINT [XPKEuropean Electoral Region] PRIMARY KEY  CLUSTERED ([European Electoral Region ID] ASC)
+go
+
+ALTER TABLE [Event]
+	ADD CONSTRAINT [XPKEvent] PRIMARY KEY  CLUSTERED ([Event Id] ASC)
+go
+
+ALTER TABLE [Gender]
+	ADD CONSTRAINT [XPKGender] PRIMARY KEY  CLUSTERED ([Gender ID] ASC)
+go
+
+ALTER TABLE [Health Authority]
+	ADD CONSTRAINT [XPKHealth Authority] PRIMARY KEY  CLUSTERED ([Health Authority ID] ASC)
+go
+
+ALTER TABLE [Hospital]
+	ADD CONSTRAINT [XPKHospital] PRIMARY KEY  CLUSTERED ([Party ID] ASC)
+go
+
+ALTER TABLE [Human Subject]
+	ADD CONSTRAINT [XPKHuman Subject] PRIMARY KEY  CLUSTERED ([Subject Id] ASC)
+go
+
+ALTER TABLE [Index of Multiple Deprivation]
+	ADD CONSTRAINT [XPKIndex of Multiple Deprivation] PRIMARY KEY  CLUSTERED ([Index of Multiple Deprivation ID] ASC)
+go
+
+ALTER TABLE [Isolation Communication]
+	ADD CONSTRAINT [XPKIsolation Communication] PRIMARY KEY  CLUSTERED ([Communication ID] ASC)
+go
+
+ALTER TABLE [Laboratory]
+	ADD CONSTRAINT [XPKLaboratory] PRIMARY KEY  CLUSTERED ([Organisation Id] ASC,[Party ID] ASC)
+go
+
+ALTER TABLE [Local Authority District]
+	ADD CONSTRAINT [XPKLocal Authority District] PRIMARY KEY  CLUSTERED ([Local Authority District ID] ASC)
+go
+
+ALTER TABLE [Local Enterprise Partnership First Instance]
+	ADD CONSTRAINT [XPKLocal Enterprise Partnership First Instance] PRIMARY KEY  CLUSTERED ([Local Enterprise Partnership First Instance ID] ASC)
+go
+
+ALTER TABLE [Local Enterprise Partnership Second Instance]
+	ADD CONSTRAINT [XPKLocal Enterprise Partnership Second Instance] PRIMARY KEY  CLUSTERED ([Local Enterprise Partnership Second Instance ID] ASC)
+go
+
+ALTER TABLE [Local Learning and Skills Council]
+	ADD CONSTRAINT [XPKLocal Learning and Skills Council] PRIMARY KEY  CLUSTERED ([Local Learning and Skills Council ID] ASC)
+go
+
+ALTER TABLE [Location]
+	ADD CONSTRAINT [XPKLocation] PRIMARY KEY  CLUSTERED ([Location ID] ASC)
+go
+
+ALTER TABLE [Location Capacity Forecast]
+	ADD CONSTRAINT [XPKLocation Capacity Forecast] PRIMARY KEY  CLUSTERED ([Location Forecast Capacity] ASC)
+go
+
+ALTER TABLE [Location Schedule]
+	ADD CONSTRAINT [XPKLocation Schedule] PRIMARY KEY  CLUSTERED ([Location Schedule ID] ASC)
+go
+
+ALTER TABLE [Location Type]
+	ADD CONSTRAINT [XPKLocation Type] PRIMARY KEY  CLUSTERED ([Location ID] ASC)
+go
+
+ALTER TABLE [Management Scheme]
+	ADD CONSTRAINT [XPKManagement Scheme] PRIMARY KEY  CLUSTERED ([Management Scheme ID] ASC)
+go
+
+ALTER TABLE [Manufacturer]
+	ADD CONSTRAINT [XPKManufacturer] PRIMARY KEY  CLUSTERED ([Party ID] ASC)
+go
+
+ALTER TABLE [National Park]
+	ADD CONSTRAINT [XPKNational Park] PRIMARY KEY  CLUSTERED ([National Park ID] ASC)
+go
+
+ALTER TABLE [NHS England Region]
+	ADD CONSTRAINT [XPKNHS England Region] PRIMARY KEY  CLUSTERED ([NHS England Region ID] ASC)
+go
+
+ALTER TABLE [NUTS LAU]
+	ADD CONSTRAINT [XPKNUTS LAU] PRIMARY KEY  CLUSTERED ([NUTS LAU ID] ASC)
+go
+
+ALTER TABLE [Object]
+	ADD CONSTRAINT [XPKObject] PRIMARY KEY  CLUSTERED ([Subject Id] ASC)
+go
+
+ALTER TABLE [Occupation]
+	ADD CONSTRAINT [XPKOccupation] PRIMARY KEY  CLUSTERED ([Occupation ID] ASC)
+go
+
+ALTER TABLE [Order]
+	ADD CONSTRAINT [XPKOrder] PRIMARY KEY  CLUSTERED ([Order ID] ASC)
+go
+
+ALTER TABLE [Order Channel]
+	ADD CONSTRAINT [XPKOrder Channel] PRIMARY KEY  CLUSTERED ([Order Channel ID] ASC)
+go
+
+ALTER TABLE [Order Line Item]
+	ADD CONSTRAINT [XPKOrder Line Item] PRIMARY KEY  CLUSTERED ([Order Line Item ID] ASC)
+go
+
+ALTER TABLE [Order Party]
+	ADD CONSTRAINT [XPKOrder Party] PRIMARY KEY  CLUSTERED ([Order Party ID] ASC)
+go
+
+ALTER TABLE [Order Party Type]
+	ADD CONSTRAINT [XPKOrder Party Type] PRIMARY KEY  CLUSTERED ([Order Party Type] ASC)
+go
+
+ALTER TABLE [Order Priority]
+	ADD CONSTRAINT [XPKOrder Priority] PRIMARY KEY  CLUSTERED ([Order Priority ID] ASC)
+go
+
+ALTER TABLE [Order Status]
+	ADD CONSTRAINT [XPKOrder Status] PRIMARY KEY  CLUSTERED ([Order Status ID] ASC)
+go
+
+ALTER TABLE [Order Type]
+	ADD CONSTRAINT [XPKOrder Type] PRIMARY KEY  CLUSTERED ([Order Type ID] ASC)
+go
+
+ALTER TABLE [Organisation]
+	ADD CONSTRAINT [XPKOrganisation] PRIMARY KEY  CLUSTERED ([Party ID] ASC)
+go
+
+ALTER TABLE [Other]
+	ADD CONSTRAINT [XPKOther] PRIMARY KEY  CLUSTERED ([Party ID] ASC)
+go
+
+ALTER TABLE [Output Area]
+	ADD CONSTRAINT [XPKOutput Area] PRIMARY KEY  CLUSTERED ([Output Area ID] ASC)
+go
+
+ALTER TABLE [Output Area Classification]
+	ADD CONSTRAINT [XPKOutput Area Classification] PRIMARY KEY  CLUSTERED ([Output Area Classification ID] ASC)
+go
+
+ALTER TABLE [Party]
+	ADD CONSTRAINT [XPKParty] PRIMARY KEY  CLUSTERED ([Party ID] ASC)
+go
+
+ALTER TABLE [Party Address]
+	ADD CONSTRAINT [XPKParty Address] PRIMARY KEY  CLUSTERED ([Party Address ID] ASC)
+go
+
+ALTER TABLE [Party Party Relationship]
+	ADD CONSTRAINT [XPKParty Party Relationship] PRIMARY KEY  CLUSTERED ([Party Party Relationship ID] ASC)
+go
+
+ALTER TABLE [Party Relationship Type]
+	ADD CONSTRAINT [XPKParty Relationship Type] PRIMARY KEY  CLUSTERED ([Party Relationship Type ID] ASC)
+go
+
+ALTER TABLE [Party Status Type]
+	ADD CONSTRAINT [XPKParty Status Type] PRIMARY KEY  CLUSTERED ([Party Status Type] ASC)
+go
+
+ALTER TABLE [Party Type]
+	ADD CONSTRAINT [XPKParty Type] PRIMARY KEY  CLUSTERED ([Party Type ID] ASC)
+go
+
+ALTER TABLE [PC Communication Type]
+	ADD CONSTRAINT [XPKPC Communication Type] PRIMARY KEY  CLUSTERED ([PC Communication Type ID] ASC)
+go
+
+ALTER TABLE [Person]
+	ADD CONSTRAINT [XPKPerson] PRIMARY KEY  CLUSTERED ([Person Id] ASC,[Party ID] ASC)
+go
+
+ALTER TABLE [Place]
+	ADD CONSTRAINT [XPKPlace] PRIMARY KEY  CLUSTERED ([Subject Id] ASC)
+go
+
+ALTER TABLE [Plant]
+	ADD CONSTRAINT [XPKPlant] PRIMARY KEY  CLUSTERED ([Subject Id] ASC)
+go
+
+ALTER TABLE [Police Force Area]
+	ADD CONSTRAINT [XPKPolice Force Area] PRIMARY KEY  CLUSTERED ([Police Force Area ID] ASC)
+go
+
+ALTER TABLE [Primary Care Trust]
+	ADD CONSTRAINT [XPKPrimary Care Trust] PRIMARY KEY  CLUSTERED ([Primary Care Trust ID] ASC)
+go
+
+ALTER TABLE [Product]
+	ADD CONSTRAINT [XPKProduct] PRIMARY KEY  CLUSTERED ([Product ID] ASC)
+go
+
+ALTER TABLE [Product Definition]
+	ADD CONSTRAINT [XPKProduct Definition] PRIMARY KEY  CLUSTERED ([Product Definition Id] ASC)
+go
+
+ALTER TABLE [Product Type]
+	ADD CONSTRAINT [XPKProduct Type] PRIMARY KEY  CLUSTERED ([Product Type ID] ASC)
+go
+
+ALTER TABLE [Public Health Situation]
+	ADD CONSTRAINT [XPKPublic Health Situation] PRIMARY KEY  CLUSTERED ([Public Health Situation ID] ASC)
+go
+
+ALTER TABLE [Public Health Situation Management Scheme]
+	ADD CONSTRAINT [XPKPublic Health Situation Management Scheme] PRIMARY KEY  CLUSTERED ([Public Health Situation Management Scheme ID] ASC)
+go
+
+ALTER TABLE [Public Health Situation Type]
+	ADD CONSTRAINT [XPKPublic Health Situation Type] PRIMARY KEY  CLUSTERED ([Public Health Situation Type] ASC)
+go
+
+ALTER TABLE [Region]
+	ADD CONSTRAINT [XPKRegion] PRIMARY KEY  CLUSTERED ([Region ID] ASC)
+go
+
+ALTER TABLE [Rural Urban Classification]
+	ADD CONSTRAINT [XPKRural Urban Classification] PRIMARY KEY  CLUSTERED ([Rural Urban Classification ID] ASC)
+go
+
+ALTER TABLE [Saliva]
+	ADD CONSTRAINT [XPKSaliva] PRIMARY KEY  CLUSTERED ([Sample Id] ASC)
+go
+
+ALTER TABLE [Sample]
+	ADD CONSTRAINT [XPKSample] PRIMARY KEY  CLUSTERED ([Sample Id] ASC)
+go
+
+ALTER TABLE [Sample  Request]
+	ADD CONSTRAINT [XPKSample  Request] PRIMARY KEY  CLUSTERED ([Sample Request ID] ASC)
+go
+
+ALTER TABLE [Sample  Request Event]
+	ADD CONSTRAINT [XPKSample  Request Event] PRIMARY KEY  CLUSTERED ([Test Request Event Id] ASC)
+go
+
+ALTER TABLE [Sample  Request Reason]
+	ADD CONSTRAINT [XPKSample  Request Reason] PRIMARY KEY  CLUSTERED ([Sample Request Reason ID] ASC)
+go
+
+ALTER TABLE [Sample Request Admin Channel]
+	ADD CONSTRAINT [XPKSample Request Admin Channel] PRIMARY KEY  CLUSTERED ([Sample Request Admin Channel] ASC)
+go
+
+ALTER TABLE [Sample Request inbound Channel]
+	ADD CONSTRAINT [XPKSample Request inbound Channel] PRIMARY KEY  CLUSTERED ([Sample Request Inbound Channel ID] ASC)
+go
+
+ALTER TABLE [Sample Type]
+	ADD CONSTRAINT [XPKSample Type] PRIMARY KEY  CLUSTERED ([Sample Type ID] ASC)
+go
+
+ALTER TABLE [Shiment Order Line]
+	ADD CONSTRAINT [XPKShiment Order Line] PRIMARY KEY  CLUSTERED ([Shipment Order Line ID] ASC)
+go
+
+ALTER TABLE [Shipemnt Failure Reason]
+	ADD CONSTRAINT [XPKShipemnt Failure Reason] PRIMARY KEY  CLUSTERED ([Shipment Failure Reason ID] ASC)
+go
+
+ALTER TABLE [Shipment]
+	ADD CONSTRAINT [XPKShipment] PRIMARY KEY  CLUSTERED ([Shipment ID] ASC)
+go
+
+ALTER TABLE [Shipment Method]
+	ADD CONSTRAINT [XPKShipment Method] PRIMARY KEY  CLUSTERED ([Shipment Method ID] ASC)
+go
+
+ALTER TABLE [Shipment Party Type]
+	ADD CONSTRAINT [XPKShipment Party Type] PRIMARY KEY  CLUSTERED ([Delivery Party Type ID] ASC)
+go
+
+ALTER TABLE [Soil]
+	ADD CONSTRAINT [XPKSoil] PRIMARY KEY  CLUSTERED ([Sample Id] ASC)
+go
+
+ALTER TABLE [Student Study Grade]
+	ADD CONSTRAINT [XPKStudent Study Grade] PRIMARY KEY  CLUSTERED ([Student Study Grade ID] ASC)
+go
+
+ALTER TABLE [Subject]
+	ADD CONSTRAINT [XPKSubject] PRIMARY KEY  CLUSTERED ([Subject Id] ASC)
+go
+
+ALTER TABLE [Subject Sample  Request]
+	ADD CONSTRAINT [XPKSubject Sample  Request] PRIMARY KEY  CLUSTERED ([Subject Test Request Id] ASC)
+go
+
+ALTER TABLE [Subject Sample Relationship]
+	ADD CONSTRAINT [XPKSubject Sample Relationship] PRIMARY KEY  CLUSTERED ([Subject Sample Relationship Id] ASC)
+go
+
+ALTER TABLE [Subject Type]
+	ADD CONSTRAINT [XPKSubject Type] PRIMARY KEY  CLUSTERED ([Subject Type ID] ASC)
+go
+
+ALTER TABLE [Substance]
+	ADD CONSTRAINT [XPKSubstance] PRIMARY KEY  CLUSTERED ([Subject Id] ASC)
+go
+
+ALTER TABLE [Sustainability Transformation Partnership]
+	ADD CONSTRAINT [XPKSustainability Transformation Partnership] PRIMARY KEY  CLUSTERED ([Sustainability Transformation Partnership ID] ASC)
+go
+
+ALTER TABLE [Test]
+	ADD CONSTRAINT [XPKTest] PRIMARY KEY  CLUSTERED ([Test ID] ASC)
+go
+
+ALTER TABLE [Test Result Communication]
+	ADD CONSTRAINT [XPKTest Result Communication] PRIMARY KEY  CLUSTERED ([Test Result Communication Id] ASC,[Communication ID] ASC)
+go
+
+ALTER TABLE [Travel To Work Area]
+	ADD CONSTRAINT [XPKTravel To Work Area] PRIMARY KEY  CLUSTERED ([Travel To Work Area ID] ASC)
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [XPKUK Postcode Grouping] PRIMARY KEY  CLUSTERED ([UK Postcode Grouping ID] ASC)
+go
+
+ALTER TABLE [Urine]
+	ADD CONSTRAINT [XPKUrine] PRIMARY KEY  CLUSTERED ([Sample Id] ASC)
+go
+
+ALTER TABLE [Ward _ Division]
+	ADD CONSTRAINT [XPKWard _ Division] PRIMARY KEY  CLUSTERED ([Ward _ Division ID] ASC)
+go
+
+ALTER TABLE [Water]
+	ADD CONSTRAINT [XPKWater] PRIMARY KEY  CLUSTERED ([Sample Id] ASC)
+go
+
+ALTER TABLE [Westminster Parliamentary Consistency]
+	ADD CONSTRAINT [XPKWestminster Parliamentary Consistency] PRIMARY KEY  CLUSTERED ([Westminister Parlimentary Consistuency ID] ASC)
+go
+
+ALTER TABLE [Work Place Zone]
+	ADD CONSTRAINT [XPKWork Place Zone] PRIMARY KEY  CLUSTERED ([Work Place Zone ID] ASC)
+go
+
+
+ALTER TABLE [Address]
+	ADD CONSTRAINT [R_243] FOREIGN KEY ([UK Postcode Grouping ID]) REFERENCES [UK Postcode Grouping]([UK Postcode Grouping ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Address]
+	ADD CONSTRAINT [R_310] FOREIGN KEY ([Country ID]) REFERENCES [Country]([Country ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Address Location]
+	ADD CONSTRAINT [R_109] FOREIGN KEY ([Address Id]) REFERENCES [Address]([Address Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Address Location]
+	ADD CONSTRAINT [R_110] FOREIGN KEY ([Location ID]) REFERENCES [Location]([Location ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Animal]
+	ADD CONSTRAINT [R_46] FOREIGN KEY ([Subject Id]) REFERENCES [Subject]([Subject Id])
+go
+
+
+ALTER TABLE [Blood]
+	ADD CONSTRAINT [R_56] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+go
+
+
+ALTER TABLE [Body Part]
+	ADD CONSTRAINT [R_57] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+go
+
+
+ALTER TABLE [Book Appointment]
+	ADD CONSTRAINT [R_104] FOREIGN KEY ([Sample Request ID]) REFERENCES [Sample  Request]([Sample Request ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Book Test Appointment Event]
+	ADD CONSTRAINT [R_184] FOREIGN KEY ([Event Id]) REFERENCES [Event]([Event Id])
+go
+
+
+ALTER TABLE [Care Home]
+	ADD CONSTRAINT [R_79] FOREIGN KEY ([Party ID]) REFERENCES [Organisation]([Party ID])
+go
+
+
+ALTER TABLE [Case]
+	ADD CONSTRAINT [R_344] FOREIGN KEY ([Public Health Situation ID]) REFERENCES [Public Health Situation]([Public Health Situation ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Case Exposure Location]
+	ADD CONSTRAINT [R_240] FOREIGN KEY ([Location ID]) REFERENCES [Location]([Location ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Case Party Subject]
+	ADD CONSTRAINT [R_234] FOREIGN KEY ([Subject Id]) REFERENCES [Subject]([Subject Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Case Party Subject]
+	ADD CONSTRAINT [R_235] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Communication]
+	ADD CONSTRAINT [R_429] FOREIGN KEY ([Communication Channel ID]) REFERENCES [Communication Channel]([Communication Channel ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Communication]
+	ADD CONSTRAINT [R_430] FOREIGN KEY ([Comnnunication Status Type ID]) REFERENCES [Communication Status Type]([Comnnunication Status Type ID])
+go
+
+ALTER TABLE [Communication]
+	ADD CONSTRAINT [R_432] FOREIGN KEY ([PC Communication Type ID]) REFERENCES [PC Communication Type]([PC Communication Type ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Country Travel History]
+	ADD CONSTRAINT [R_311] FOREIGN KEY ([Country ID]) REFERENCES [Country]([Country ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Country Travel History]
+	ADD CONSTRAINT [R_285] FOREIGN KEY ([Location ID]) REFERENCES [Location]([Location ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Delivery Receipt]
+	ADD CONSTRAINT [R_256] FOREIGN KEY ([Communication ID]) REFERENCES [Communication]([Communication ID])
+go
+
+
+ALTER TABLE [Distributor]
+	ADD CONSTRAINT [R_80] FOREIGN KEY ([Party ID]) REFERENCES [Organisation]([Party ID])
+go
+
+
+ALTER TABLE [DNA]
+	ADD CONSTRAINT [R_60] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+go
+
+
+ALTER TABLE [Education Institution]
+	ADD CONSTRAINT [R_76] FOREIGN KEY ([Party ID]) REFERENCES [Organisation]([Party ID])
+go
+
+
+ALTER TABLE [Email Address]
+	ADD CONSTRAINT [R_299] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Ethnicity]
+	ADD CONSTRAINT [R_403] FOREIGN KEY ([Ethnicity Group ID]) REFERENCES [Ethnicity Group]([Ethnicity Group ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Event]
+	ADD CONSTRAINT [R_276] FOREIGN KEY ([Event Id]) REFERENCES [Event]([Event Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Event]
+	ADD CONSTRAINT [R_379] FOREIGN KEY ([Management Scheme ID]) REFERENCES [Management Scheme]([Management Scheme ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Event]
+	ADD CONSTRAINT [R_264] FOREIGN KEY ([Public Health Situation ID]) REFERENCES [Public Health Situation]([Public Health Situation ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Hospital]
+	ADD CONSTRAINT [R_78] FOREIGN KEY ([Party ID]) REFERENCES [Organisation]([Party ID])
+go
+
+
+ALTER TABLE [Human Subject]
+	ADD CONSTRAINT [R_45] FOREIGN KEY ([Subject Id]) REFERENCES [Subject]([Subject Id])
+go
+
+ALTER TABLE [Human Subject]
+	ADD CONSTRAINT [R_409] FOREIGN KEY ([Ethnicity Id]) REFERENCES [Ethnicity]([Ethnicity Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Human Subject]
+	ADD CONSTRAINT [R_411] FOREIGN KEY ([Occupation ID]) REFERENCES [Occupation]([Occupation ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Human Subject]
+	ADD CONSTRAINT [R_413] FOREIGN KEY ([Gender ID]) REFERENCES [Gender]([Gender ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Human Subject]
+	ADD CONSTRAINT [R_427] FOREIGN KEY ([Person Id],[Party ID]) REFERENCES [Person]([Person Id],[Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Human Subject]
+	ADD CONSTRAINT [R_428] FOREIGN KEY ([Student Study Grade ID]) REFERENCES [Student Study Grade]([Student Study Grade ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [International Arrival]
+	ADD CONSTRAINT [R_385] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Isolation Communication]
+	ADD CONSTRAINT [R_258] FOREIGN KEY ([Communication ID]) REFERENCES [Communication]([Communication ID])
+go
+
+
+ALTER TABLE [Laboratory]
+	ADD CONSTRAINT [R_37] FOREIGN KEY ([Party ID]) REFERENCES [Organisation]([Party ID])
+go
+
+
+ALTER TABLE [Location]
+	ADD CONSTRAINT [R_286] FOREIGN KEY ([Country ID]) REFERENCES [Country]([Country ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Location]
+	ADD CONSTRAINT [R_132] FOREIGN KEY ([Location ID]) REFERENCES [Location]([Location ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Location Capacity Forecast]
+	ADD CONSTRAINT [R_396] FOREIGN KEY ([Location ID]) REFERENCES [Location]([Location ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Location Management Scheme]
+	ADD CONSTRAINT [R_372] FOREIGN KEY ([Location ID]) REFERENCES [Location]([Location ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Location Management Scheme]
+	ADD CONSTRAINT [R_371] FOREIGN KEY ([Management Scheme ID]) REFERENCES [Management Scheme]([Management Scheme ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Location Schedule]
+	ADD CONSTRAINT [R_393] FOREIGN KEY ([Location ID]) REFERENCES [Location]([Location ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Location Type]
+	ADD CONSTRAINT [R_108] FOREIGN KEY ([Location ID]) REFERENCES [Location]([Location ID])
+go
+
+
+ALTER TABLE [Management Scheme]
+	ADD CONSTRAINT [R_373] FOREIGN KEY ([Management Scheme ID]) REFERENCES [Management Scheme]([Management Scheme ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Manufacturer]
+	ADD CONSTRAINT [R_77] FOREIGN KEY ([Party ID]) REFERENCES [Organisation]([Party ID])
+go
+
+
+ALTER TABLE [Object]
+	ADD CONSTRAINT [R_49] FOREIGN KEY ([Subject Id]) REFERENCES [Subject]([Subject Id])
+go
+
+
+ALTER TABLE [Order]
+	ADD CONSTRAINT [R_159] FOREIGN KEY ([Order Status ID]) REFERENCES [Order Status]([Order Status ID])
+go
+
+ALTER TABLE [Order]
+	ADD CONSTRAINT [R_152] FOREIGN KEY ([Order Type ID]) REFERENCES [Order Type]([Order Type ID])
+go
+
+ALTER TABLE [Order]
+	ADD CONSTRAINT [R_424] FOREIGN KEY ([Order Channel ID]) REFERENCES [Order Channel]([Order Channel ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Order]
+	ADD CONSTRAINT [R_163] FOREIGN KEY ([Order Priority ID]) REFERENCES [Order Priority]([Order Priority ID])
+go
+
+
+ALTER TABLE [Order Line Item]
+	ADD CONSTRAINT [R_170] FOREIGN KEY ([Product ID]) REFERENCES [Product]([Product ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Order Line Item]
+	ADD CONSTRAINT [R_153] FOREIGN KEY ([Order ID]) REFERENCES [Order]([Order ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Order Line Item]
+	ADD CONSTRAINT [R_161] FOREIGN KEY ([Order Status ID]) REFERENCES [Order Status]([Order Status ID])
+go
+
+ALTER TABLE [Order Line Item]
+	ADD CONSTRAINT [R_423] FOREIGN KEY ([Order Priority ID]) REFERENCES [Order Priority]([Order Priority ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Order Party]
+	ADD CONSTRAINT [R_174] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Order Party]
+	ADD CONSTRAINT [R_418] FOREIGN KEY ([Order ID]) REFERENCES [Order]([Order ID])
+go
+
+ALTER TABLE [Order Party]
+	ADD CONSTRAINT [R_422] FOREIGN KEY ([Order Party Type]) REFERENCES [Order Party Type]([Order Party Type])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Organisation]
+	ADD CONSTRAINT [R_290] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+go
+
+
+ALTER TABLE [Other]
+	ADD CONSTRAINT [R_82] FOREIGN KEY ([Party ID]) REFERENCES [Organisation]([Party ID])
+go
+
+
+ALTER TABLE [Party]
+	ADD CONSTRAINT [R_13] FOREIGN KEY ([Party Type ID]) REFERENCES [Party Type]([Party Type ID])
+go
+
+ALTER TABLE [Party]
+	ADD CONSTRAINT [R_406] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Party]
+	ADD CONSTRAINT [R_408] FOREIGN KEY ([Party Status Type]) REFERENCES [Party Status Type]([Party Status Type])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Party Address]
+	ADD CONSTRAINT [R_15] FOREIGN KEY ([Address Id]) REFERENCES [Address]([Address Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Party Address]
+	ADD CONSTRAINT [R_14] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Party Case]
+	ADD CONSTRAINT [R_345] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Party Location]
+	ADD CONSTRAINT [R_17] FOREIGN KEY ([Location ID]) REFERENCES [Location]([Location ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Party Location]
+	ADD CONSTRAINT [R_16] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Party Party Relationship]
+	ADD CONSTRAINT [R_31] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Party Party Relationship]
+	ADD CONSTRAINT [R_32] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Party Party Relationship]
+	ADD CONSTRAINT [R_33] FOREIGN KEY ([Party Relationship Type ID]) REFERENCES [Party Relationship Type]([Party Relationship Type ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Party Source Data]
+	ADD CONSTRAINT [R_275] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+go
+
+
+ALTER TABLE [Person]
+	ADD CONSTRAINT [R_8] FOREIGN KEY ([Ethnicity Id]) REFERENCES [Ethnicity]([Ethnicity Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Person]
+	ADD CONSTRAINT [R_56] FOREIGN KEY ([Party ID]) REFERENCES [Organisation]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Person]
+	ADD CONSTRAINT [R_291] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+go
+
+ALTER TABLE [Person]
+	ADD CONSTRAINT [R_13] FOREIGN KEY ([Occupation ID]) REFERENCES [Occupation]([Occupation ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Person]
+	ADD CONSTRAINT [R_300] FOREIGN KEY ([Gender ID]) REFERENCES [Gender]([Gender ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Person]
+	ADD CONSTRAINT [R_302] FOREIGN KEY ([Student Study Grade ID]) REFERENCES [Student Study Grade]([Student Study Grade ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Place]
+	ADD CONSTRAINT [R_47] FOREIGN KEY ([Subject Id]) REFERENCES [Subject]([Subject Id])
+go
+
+ALTER TABLE [Place]
+	ADD CONSTRAINT [R_440] FOREIGN KEY ([Location ID]) REFERENCES [Location]([Location ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Plant]
+	ADD CONSTRAINT [R_44] FOREIGN KEY ([Subject Id]) REFERENCES [Subject]([Subject Id])
+go
+
+
+ALTER TABLE [Product]
+	ADD CONSTRAINT [R_281] FOREIGN KEY ([Product Type ID]) REFERENCES [Product Type]([Product Type ID])
+go
+
+
+ALTER TABLE [Product Definition]
+	ADD CONSTRAINT [R_301] FOREIGN KEY ([Product ID]) REFERENCES [Product]([Product ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Public Health Situation]
+	ADD CONSTRAINT [R_390] FOREIGN KEY ([Public Health Situation ID]) REFERENCES [Public Health Situation]([Public Health Situation ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Public Health Situation]
+	ADD CONSTRAINT [R_340] FOREIGN KEY ([Public Health Situation Type]) REFERENCES [Public Health Situation Type]([Public Health Situation Type])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Public Health Situation Management Scheme]
+	ADD CONSTRAINT [R_376] FOREIGN KEY ([Management Scheme ID]) REFERENCES [Management Scheme]([Management Scheme ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Public Health Situation Management Scheme]
+	ADD CONSTRAINT [R_375] FOREIGN KEY ([Public Health Situation ID]) REFERENCES [Public Health Situation]([Public Health Situation ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Saliva]
+	ADD CONSTRAINT [R_58] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+go
+
+
+ALTER TABLE [Sample]
+	ADD CONSTRAINT [R_434] FOREIGN KEY ([Sample Type ID]) REFERENCES [Sample Type]([Sample Type ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Sample  Kit]
+	ADD CONSTRAINT [R_63] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Sample  Request]
+	ADD CONSTRAINT [R_112] FOREIGN KEY ([Sample Request Reason ID]) REFERENCES [Sample  Request Reason]([Sample Request Reason ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Sample  Request]
+	ADD CONSTRAINT [R_436] FOREIGN KEY ([Sample Request Admin Channel]) REFERENCES [Sample Request Admin Channel]([Sample Request Admin Channel])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Sample  Request]
+	ADD CONSTRAINT [R_437] FOREIGN KEY ([Appointment Type ID]) REFERENCES [Appointment Type]([Appointment Type ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Sample  Request Event]
+	ADD CONSTRAINT [R_91] FOREIGN KEY ([Test Request Event Id]) REFERENCES [Event]([Event Id])
+go
+
+
+ALTER TABLE [Sample  Request Party]
+	ADD CONSTRAINT [R_201] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Sample  Request Party]
+	ADD CONSTRAINT [R_200] FOREIGN KEY ([Sample Request ID]) REFERENCES [Sample  Request]([Sample Request ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Sample Request inbound Channel]
+	ADD CONSTRAINT [R_438] FOREIGN KEY ([Sample Request ID]) REFERENCES [Sample  Request]([Sample Request ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Sample Taken]
+	ADD CONSTRAINT [R_106] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Sample Taken]
+	ADD CONSTRAINT [R_278] FOREIGN KEY ([Sample Request ID]) REFERENCES [Sample  Request]([Sample Request ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Shiment Order Line]
+	ADD CONSTRAINT [R_166] FOREIGN KEY ([Product ID]) REFERENCES [Product]([Product ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Shiment Order Line]
+	ADD CONSTRAINT [R_169] FOREIGN KEY ([Order Status ID]) REFERENCES [Order Status]([Order Status ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Shiment Order Line]
+	ADD CONSTRAINT [R_165] FOREIGN KEY ([Shipment ID]) REFERENCES [Shipment]([Shipment ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Shipment]
+	ADD CONSTRAINT [R_168] FOREIGN KEY ([Order Status ID]) REFERENCES [Order Status]([Order Status ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Shipment]
+	ADD CONSTRAINT [R_425] FOREIGN KEY ([Order ID]) REFERENCES [Order]([Order ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Shipment]
+	ADD CONSTRAINT [R_164] FOREIGN KEY ([Shipment Method ID]) REFERENCES [Shipment Method]([Shipment Method ID])
+go
+
+ALTER TABLE [Shipment]
+	ADD CONSTRAINT [R_189] FOREIGN KEY ([Shipment Failure Reason ID]) REFERENCES [Shipemnt Failure Reason]([Shipment Failure Reason ID])
+go
+
+
+ALTER TABLE [Shipment Address]
+	ADD CONSTRAINT [R_181] FOREIGN KEY ([Address Id]) REFERENCES [Address]([Address Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Shipment Address]
+	ADD CONSTRAINT [R_180] FOREIGN KEY ([Shipment ID]) REFERENCES [Shipment]([Shipment ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Shipment Communication]
+	ADD CONSTRAINT [R_171] FOREIGN KEY ([Shipment ID]) REFERENCES [Shipment]([Shipment ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Shipment Communication]
+	ADD CONSTRAINT [R_306] FOREIGN KEY ([Communication ID]) REFERENCES [Communication]([Communication ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Shipment Party]
+	ADD CONSTRAINT [R_175] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Shipment Party]
+	ADD CONSTRAINT [R_178] FOREIGN KEY ([Shipment ID]) REFERENCES [Shipment]([Shipment ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Shipment Party]
+	ADD CONSTRAINT [R_426] FOREIGN KEY ([Delivery Party Type ID]) REFERENCES [Shipment Party Type]([Delivery Party Type ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Soil]
+	ADD CONSTRAINT [R_55] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+go
+
+
+ALTER TABLE [Subject]
+	ADD CONSTRAINT [R_441] FOREIGN KEY ([Subject Type ID]) REFERENCES [Subject Type]([Subject Type ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Subject Adress]
+	ADD CONSTRAINT [R_415] FOREIGN KEY ([Subject Id]) REFERENCES [Subject]([Subject Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Subject Adress]
+	ADD CONSTRAINT [R_417] FOREIGN KEY ([Address Id]) REFERENCES [Address]([Address Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Subject Sample  Request]
+	ADD CONSTRAINT [R_32] FOREIGN KEY ([Subject Id]) REFERENCES [Subject]([Subject Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Subject Sample  Request]
+	ADD CONSTRAINT [R_33] FOREIGN KEY ([Test Request Event Id]) REFERENCES [Sample  Request Event]([Test Request Event Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Subject Sample  Request]
+	ADD CONSTRAINT [R_273] FOREIGN KEY ([Sample Request ID]) REFERENCES [Sample  Request]([Sample Request ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Subject Sample Relationship]
+	ADD CONSTRAINT [R_25] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+go
+
+ALTER TABLE [Subject Sample Relationship]
+	ADD CONSTRAINT [R_24] FOREIGN KEY ([Subject Id]) REFERENCES [Subject]([Subject Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Substance]
+	ADD CONSTRAINT [R_48] FOREIGN KEY ([Subject Id]) REFERENCES [Subject]([Subject Id])
+go
+
+
+ALTER TABLE [Telephone Number]
+	ADD CONSTRAINT [R_26] FOREIGN KEY ([Party ID]) REFERENCES [Party]([Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Test]
+	ADD CONSTRAINT [R_85] FOREIGN KEY ([Organisation Id],[Party ID]) REFERENCES [Laboratory]([Organisation Id],[Party ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Test]
+	ADD CONSTRAINT [R_107] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Test Communication]
+	ADD CONSTRAINT [R_126] FOREIGN KEY ([Test ID]) REFERENCES [Test]([Test ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [Test Communication]
+	ADD CONSTRAINT [R_259] FOREIGN KEY ([Communication ID]) REFERENCES [Communication]([Communication ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Test Result]
+	ADD CONSTRAINT [R_87] FOREIGN KEY ([Test ID]) REFERENCES [Test]([Test ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Test Result Communication]
+	ADD CONSTRAINT [R_257] FOREIGN KEY ([Communication ID]) REFERENCES [Communication]([Communication ID])
+go
+
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_317] FOREIGN KEY ([Built Up Area ID]) REFERENCES [Built Up Area]([Build Up Area ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_318] FOREIGN KEY ([Built Up Area SubDivsion ID]) REFERENCES [Build Up Area SubDivision]([Built Up Area SubDivsion ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_319] FOREIGN KEY ([Clinical Commission Group ID]) REFERENCES [Clinical Commission Group]([Clinical Commission Group ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_320] FOREIGN KEY ([County Electoral Division ID]) REFERENCES [County Electoral Division]([County Electoral Division ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_321] FOREIGN KEY ([Country ID]) REFERENCES [Country]([Country ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_323] FOREIGN KEY ([European Electoral Region ID]) REFERENCES [European Electoral Region]([European Electoral Region ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_324] FOREIGN KEY ([Health Authority ID]) REFERENCES [Health Authority]([Health Authority ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_325] FOREIGN KEY ([Index of Multiple Deprivation ID]) REFERENCES [Index of Multiple Deprivation]([Index of Multiple Deprivation ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_327] FOREIGN KEY ([Local Enterprise Partnership First Instance ID]) REFERENCES [Local Enterprise Partnership First Instance]([Local Enterprise Partnership First Instance ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_328] FOREIGN KEY ([Local Authority District ID]) REFERENCES [Local Authority District]([Local Authority District ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_329] FOREIGN KEY ([Local Enterprise Partnership Second Instance ID]) REFERENCES [Local Enterprise Partnership Second Instance]([Local Enterprise Partnership Second Instance ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_330] FOREIGN KEY ([NHS England Region ID]) REFERENCES [NHS England Region]([NHS England Region ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_331] FOREIGN KEY ([NUTS LAU ID]) REFERENCES [NUTS LAU]([NUTS LAU ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_332] FOREIGN KEY ([Primary Care Trust ID]) REFERENCES [Primary Care Trust]([Primary Care Trust ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_333] FOREIGN KEY ([Police Force Area ID]) REFERENCES [Police Force Area]([Police Force Area ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_365] FOREIGN KEY ([Cancer Alliance ID]) REFERENCES [Cancer Alliance]([Cancer Alliance ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_355] FOREIGN KEY ([Output Area ID]) REFERENCES [Output Area]([Output Area ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_357] FOREIGN KEY ([Output Area Classification ID]) REFERENCES [Output Area Classification]([Output Area Classification ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_358] FOREIGN KEY ([National Park ID]) REFERENCES [National Park]([National Park ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_356] FOREIGN KEY ([Westminister Parlimentary Consistuency ID]) REFERENCES [Westminster Parliamentary Consistency]([Westminister Parlimentary Consistuency ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_351] FOREIGN KEY ([Region ID]) REFERENCES [Region]([Region ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_352] FOREIGN KEY ([Rural Urban Classification ID]) REFERENCES [Rural Urban Classification]([Rural Urban Classification ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_353] FOREIGN KEY ([Local Learning and Skills Council ID]) REFERENCES [Local Learning and Skills Council]([Local Learning and Skills Council ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_368] FOREIGN KEY ([Travel To Work Area ID]) REFERENCES [Travel To Work Area]([Travel To Work Area ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_350] FOREIGN KEY ([Ward _ Division ID]) REFERENCES [Ward _ Division]([Ward _ Division ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_367] FOREIGN KEY ([Work Place Zone ID]) REFERENCES [Work Place Zone]([Work Place Zone ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+ALTER TABLE [UK Postcode Grouping]
+	ADD CONSTRAINT [R_384] FOREIGN KEY ([County ID]) REFERENCES [County]([County ID])
+		ON DELETE SET NULL
+		ON UPDATE SET NULL
+go
+
+
+ALTER TABLE [Urine]
+	ADD CONSTRAINT [R_61] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+go
+
+
+ALTER TABLE [Water]
+	ADD CONSTRAINT [R_59] FOREIGN KEY ([Sample Id]) REFERENCES [Sample]([Sample Id])
+go
